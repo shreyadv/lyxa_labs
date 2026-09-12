@@ -84,16 +84,42 @@ function ApplianceForm({ onCreate }) {
   )
 }
 
+function EventLog({ events }) {
+  if (events.length === 0) {
+    return <p className="event-empty">No events yet — register or toggle an appliance to see history here.</p>
+  }
+
+  return (
+    <ul className="event-list">
+      {events.map((e) => (
+        <li key={e.id} className="event-item">
+          <span className="event-time">{e.timestamp}</span>
+          <span className="event-body">
+            <strong>{e.appliance_name}</strong>{' '}
+            {e.from_state ? `${e.from_state} → ${e.to_state}` : e.to_state}
+            <span className="event-cause"> — {e.cause}</span>
+          </span>
+        </li>
+      ))}
+    </ul>
+  )
+}
+
 export default function App() {
   const [status, setStatus] = useState(null)
+  const [events, setEvents] = useState([])
   const [notice, setNotice] = useState(null)
   const [confirmDelete, setConfirmDelete] = useState(null)
   const [error, setError] = useState(null)
 
   const refresh = async () => {
     try {
-      const data = await api.getStatus()
-      setStatus(data)
+      const [statusData, eventsData] = await Promise.all([
+        api.getStatus(),
+        api.getEvents(),
+      ])
+      setStatus(statusData)
+      setEvents(eventsData)
     } catch (err) {
       setError(err.message)
     }
@@ -183,6 +209,9 @@ export default function App() {
 
       <h2>Register New Appliance</h2>
       <ApplianceForm onCreate={handleCreate} />
+
+      <h2>Event Log</h2>
+      <EventLog events={events} />
 
       {confirmDelete && (
         <div className="modal-backdrop">

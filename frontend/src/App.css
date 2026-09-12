@@ -35,3 +35,11 @@ tr.state-shed { background: rgba(234, 179, 8, 0.1); }
 
 .modal-backdrop { position: fixed; inset: 0; background: rgba(0, 0, 0, 0.6); display: flex; align-items: center; justify-content: center; }
 .modal { background: #1e293b; padding: 1.5rem; border-radius: 10px; max-width: 320px; }
+
+.event-list { list-style: none; padding: 0; margin: 0 0 2rem; max-height: 260px; overflow-y: auto; border: 1px solid #1e293b; border-radius: 8px; }
+.event-item { padding: 0.6rem 0.9rem; border-bottom: 1px solid #1e293b; font-size: 0.85rem; }
+.event-item:last-child { border-bottom: none; }
+.event-time { display: block; color: #64748b; font-size: 0.75rem; margin-bottom: 0.2rem; }
+.event-body { color: #e2e8f0; }
+.event-cause { color: #94a3b8; }
+.event-empty { color: #64748b; font-size: 0.9rem; margin-bottom: 2rem; }
