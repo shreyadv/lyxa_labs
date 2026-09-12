@@ -1,0 +1,37 @@
+* { box-sizing: border-box; }
+body { font-family: system-ui, -apple-system, sans-serif; background: #0f172a; color: #e2e8f0; margin: 0; }
+.app { max-width: 800px; margin: 0 auto; padding: 2rem 1.5rem; }
+h1 { margin-bottom: 1rem; }
+h2 { margin-top: 2rem; font-size: 1.1rem; color: #94a3b8; }
+
+.capacity-bar { margin-bottom: 1.5rem; }
+.capacity-bar-track { background: #1e293b; border-radius: 8px; height: 20px; overflow: hidden; }
+.capacity-bar-fill { background: #22c55e; height: 100%; transition: width 0.3s ease; }
+.capacity-bar-fill.danger { background: #ef4444; }
+.capacity-bar-label { margin-top: 0.4rem; font-size: 0.9rem; color: #94a3b8; }
+
+.appliance-table { width: 100%; border-collapse: collapse; margin-bottom: 1.5rem; }
+.appliance-table th, .appliance-table td { padding: 0.6rem 0.5rem; text-align: left; border-bottom: 1px solid #1e293b; }
+
+tr.state-running { background: rgba(34, 197, 94, 0.08); }
+tr.state-off { background: transparent; }
+tr.state-shed { background: rgba(234, 179, 8, 0.1); }
+
+.badge { padding: 2px 8px; border-radius: 999px; font-size: 0.75rem; text-transform: uppercase; }
+.badge.state-running { background: #14532d; color: #86efac; }
+.badge.state-off { background: #334155; color: #cbd5e1; }
+.badge.state-shed { background: #713f12; color: #fde68a; }
+
+.btn { background: #1e293b; color: #e2e8f0; border: 1px solid #334155; padding: 0.4rem 0.8rem; border-radius: 6px; margin-right: 0.4rem; cursor: pointer; font-size: 0.85rem; }
+.btn:hover { background: #334155; }
+.btn.primary { background: #2563eb; border-color: #2563eb; }
+.btn.danger { background: #7f1d1d; border-color: #7f1d1d; }
+
+.appliance-form { display: flex; gap: 0.6rem; flex-wrap: wrap; margin-bottom: 2rem; }
+.appliance-form input { background: #1e293b; border: 1px solid #334155; color: #e2e8f0; padding: 0.5rem; border-radius: 6px; flex: 1; min-width: 140px; }
+
+.notice { background: #1e3a8a; border: 1px solid #2563eb; padding: 0.7rem 1rem; border-radius: 6px; margin-bottom: 1rem; }
+.error { background: #7f1d1d; border: 1px solid #ef4444; padding: 0.7rem 1rem; border-radius: 6px; margin-bottom: 1rem; }
+
+.modal-backdrop { position: fixed; inset: 0; background: rgba(0, 0, 0, 0.6); display: flex; align-items: center; justify-content: center; }
+.modal { background: #1e293b; padding: 1.5rem; border-radius: 10px; max-width: 320px; }
