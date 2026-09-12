@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+backend/venv/
+backend/app/inverter.db
+node_modules/
+dist/
+.env
